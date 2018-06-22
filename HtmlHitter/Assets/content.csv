@@ -1,4 +1,5 @@
-﻿#{host}/api/{endpoint}/{id}::req,id::var::1,param::query::1
+﻿#Comments are supported
+#{host}/api/{endpoint}/{id}::req,id::var::1,param::query::1
 {host}/api/{endpoint}/{id}::req,id::multivar::2;3,param::query::{param},isadult::query::false,param::multivar::a;b
 #{host}/api/{version}/{endpoint}/{id}::req,id::multivar::2;3,param::query::{param},isadult::query::false,param::multivar::a;b
 #{host}/api/{endpoint}/{id}::req,id::var::5,param::query::1
