@@ -1,0 +1,9 @@
+﻿{
+  "maxRun": 500,
+  "order": "SequentialRepeat",
+  "defaultVariables": {
+    "host": "http://localhost:55319",
+    "endpoint": "series",
+    "version":  "v3"
+  }
+}

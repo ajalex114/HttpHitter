@@ -1,0 +1,2 @@
+﻿{host}/{version}/{endpoint}/{id}::req,catchup::query::false,id::var::2d863156-e738-4449-8653-542adf1b5f2a
+{host}/{version}/{endpoint}/{id}::req,catchup::query::true,id::var::2d863156-e738-4449-8653-542adf1b5f2a

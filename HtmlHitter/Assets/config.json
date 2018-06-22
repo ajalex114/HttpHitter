@@ -1,0 +1,14 @@
+﻿{
+  "maxRun": 5,
+  "order": "Sequential",
+  "defaultVariables": {
+    "host": "http://localhost:59860/",
+    "endpoint": "values"
+  },
+  "DefaultMultiVariables": {
+    "version": [
+      "v1",
+      "v2"
+    ]
+  }
+}
