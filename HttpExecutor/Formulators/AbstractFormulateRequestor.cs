@@ -105,8 +105,11 @@ namespace HttpExecutor.Formulators
         {
             var result = new List<string>();
 
-            var multiVariables = content.GetMultiVariables()?.ToDictionary(
-                keySelector: x => x.Key,
+            var multiVariables = content.GetMultiVariables()
+                ?.Where(v => v.Value.Count() > 0)
+                .Where(x => url.Contains("{" + x.Key + "}"))
+                .OrderBy(x => x.Value.Count())
+                .ToDictionary(keySelector: x => x.Key,
                 elementSelector: x => x?.Value?.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries));
 
             var size = multiVariables?.Count ?? 0;
