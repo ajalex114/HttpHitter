@@ -19,14 +19,17 @@ namespace HttpExecutor
                             switch (arg)
                             {
                                 case "/config":
+                                case "-config":
                                     parameterType = CommandLineParameterType.Config;
                                     break;
 
                                 case "/content":
+                                case "-content":
                                     parameterType = CommandLineParameterType.Content;
                                     break;
 
                                 case "/header":
+                                case "-header":
                                     parameterType = CommandLineParameterType.Header;
                                     break;
 
