@@ -3,6 +3,7 @@ namespace HttpExecutor.Helpers
 {
     using HttpExecutor.Formulators;
     using HttpExecutor.Impl;
+    using System;
 
     public static class Provider
     {
@@ -23,8 +24,11 @@ namespace HttpExecutor.Helpers
                 case Order.Random:
                     return new FormulateRandomRequests();
 
+                case Order.RandomRepeat:
+                    return new FormulateRandomRepeatRequests();
+
                 default:
-                    return new FormulateSequentialRequests();
+                    throw new Exception("Invalid Order Type provided");
             }
         }
     }

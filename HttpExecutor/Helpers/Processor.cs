@@ -67,13 +67,15 @@ namespace HttpExecutor
                 {
                     var line = await reader.ReadLineAsync();
 
-                    // Commented line
-                    if (line.StartsWith("#"))
+                    line = line?.Trim();
+
+                    // Commented line or line == null
+                    if (line?.StartsWith("#") ?? true)
                     {
                         continue;
                     }
 
-                    if (!string.IsNullOrEmpty(line?.Trim()))
+                    if (!string.IsNullOrEmpty(line))
                     {
                         var csvSplit = line.Split(new[] { ',' });
 
@@ -104,6 +106,11 @@ namespace HttpExecutor
                                     throw new Exception("Content can have only 1 url");
                                 }
 
+                                if (contentModel.ContentType == ContentType.Invalid)
+                                {
+                                    throw new Exception($"Invalid Content Type : {split[1]}");
+                                }
+
                                 content.ContentModels.Add(contentModel);
                             }
 
@@ -126,6 +133,6 @@ namespace HttpExecutor
         }
 
         private static ContentType ParseContentType(string type) =>
-            Enum.TryParse<ContentType>(type, true, out var result) ? result : ContentType.Url;
+            Enum.TryParse<ContentType>(type, true, out var result) ? result : ContentType.Invalid;
     }
 }

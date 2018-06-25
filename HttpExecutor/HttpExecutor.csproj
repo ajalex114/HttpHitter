@@ -59,6 +59,7 @@
     <Compile Include="Formulators\FormulateSequentialRequests.cs" />
     <Compile Include="Impl\HttpExecutor.cs" />
     <Compile Include="IHttpExecutor.cs" />
+    <Compile Include="IRequestStatus.cs" />
     <Compile Include="Models\ExecutorRequest.cs" />
     <Compile Include="IContent.cs" />
     <Compile Include="IExecutor.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Enums\Order.cs" />
     <Compile Include="Helpers\Processor.cs" />
     <Compile Include="Models\PredefinedHeaders.cs" />
+    <Compile Include="Models\RequestStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>

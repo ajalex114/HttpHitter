@@ -7,7 +7,10 @@ namespace HttpExecutor
     {
         Order Order { get; }
 
-        int MaxRun { get; }
+        /// <summary>
+        /// Max supported Value : 18,446,744,073,709,551,615
+        /// </summary>
+        ulong MaxRun { get; }
 
         Dictionary<string, string> DefaultVariables { get; }
 

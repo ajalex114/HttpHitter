@@ -6,6 +6,7 @@ namespace HttpExecutor
 
     enum ContentType
     {
+        Invalid,
         Url,
         Var,
         MultiVar,

@@ -11,7 +11,7 @@ namespace HttpExecutor.Formulators
         {
             var executorRequests = new List<ExecutorRequest>();
 
-            int count = 0;
+            ulong count = 0;
             foreach (var content in _contents)
             {
                 // Get the Url

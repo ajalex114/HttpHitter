@@ -37,12 +37,25 @@ namespace HttpExecutor
             {
                 try
                 {
-                    Console.WriteLine(DateTime.Now);
-                    Console.WriteLine(uri);
+                    Console.WriteLine("------------------------------------------------------------------------------------------------");
 
-                    _httpRequestExecutor.ExecuteAsync(uri, _headers).Wait();
+                    Console.WriteLine("--------------------");
+                    Console.WriteLine($"-- {total} --");
+                    Console.WriteLine("--------------------");
+
+                    Console.WriteLine("--------------------");
+                    Console.WriteLine($"Uri :{uri}");
+                    Console.WriteLine("--------------------");
 
                     Console.WriteLine(DateTime.Now);
+
+                    var status = _httpRequestExecutor.ExecuteAsync(uri, _headers).Result;
+
+                    Console.WriteLine(DateTime.Now);
+
+                    Console.WriteLine("--------------------");
+                    Console.WriteLine($"Status : {status.Status}");
+                    Console.WriteLine("--------------------");
 
                     success++;
                 }
@@ -54,6 +67,7 @@ namespace HttpExecutor
                 finally
                 {
                     total++;
+                    Console.WriteLine("------------------------------------------------------------------------------------------------");
                 }
             }
 

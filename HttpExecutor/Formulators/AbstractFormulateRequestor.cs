@@ -9,7 +9,7 @@ namespace HttpExecutor.Formulators
 
     abstract class AbstractFormulateRequestor : IFormulateRequests
     {
-        protected readonly int _maxRun;
+        protected readonly ulong _maxRun;
         protected readonly IHeaderHolder _headers;
         protected readonly IEnumerable<IContent> _contents;
         protected readonly IConfig _config;
@@ -50,7 +50,14 @@ namespace HttpExecutor.Formulators
         {
             var result = new List<string>();
 
-            var multiVariables = _config.DefaultMultiVariables;
+            // Only those variables which has more than 0 values, which are present in the url are considered.
+            // The variables are also sorted in an ascending order, failing to which the Permutation and Combination algorithm (ApplyMultiVariablesToResult) will fail to apply any variables.
+            var multiVariables = _config.DefaultMultiVariables
+                .Where(v => v.Value.Count() > 0)
+                .Where(x => url.Contains("{" + x.Key + "}"))
+                .OrderBy(x => x.Value.Count())
+                .ToDictionary(x => x.Key, x => x.Value);
+
             var size = multiVariables?.Count ?? 0;
             var keys = multiVariables?.Keys?.ToList();
 

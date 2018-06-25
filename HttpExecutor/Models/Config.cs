@@ -7,7 +7,7 @@ namespace HttpExecutor
     {
         public Order Order { get; set; }
 
-        public int MaxRun { get; set; }
+        public ulong MaxRun { get; set; }
 
         public Dictionary<string, string> DefaultVariables { get; set; }
 

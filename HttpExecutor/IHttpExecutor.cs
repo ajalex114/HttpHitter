@@ -6,6 +6,6 @@ namespace HttpExecutor
 
     public interface IHttpRequestExecutor
     {
-        Task ExecuteAsync(Uri uri, IHeaderHolder headers);
+        Task<IRequestStatus> ExecuteAsync(Uri uri, IHeaderHolder headers);
     }
 }

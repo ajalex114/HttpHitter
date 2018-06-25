@@ -19,8 +19,10 @@ namespace HttpExecutor.Impl
             _skipHeaders = Enum.GetNames(typeof(PredefinedHeaders));
         }
 
-        public async Task ExecuteAsync(Uri uri, IHeaderHolder headers)
+        public async Task<IRequestStatus> ExecuteAsync(Uri uri, IHeaderHolder headers)
         {
+            var status = new RequestStatus();
+
             var requestHandler = new WebRequestHandler
             {
                 CookieContainer = GetCookies(uri, headers)
@@ -37,9 +39,13 @@ namespace HttpExecutor.Impl
                     headers.Where(x => !_skipHeaders.Contains(x.Key)).ToList().ForEach(x => request.Headers.Add(x.Key, x.Value));
 
                     var response = await httpClient.SendAsync(request);
+
+                    status.Status = response.StatusCode.ToString();
                     response.EnsureSuccessStatusCode();
                 }
             }
+
+            return status;
         }
 
         private static CookieContainer GetCookies(Uri uri, IHeaderHolder headers)
