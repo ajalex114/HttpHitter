@@ -22,8 +22,9 @@ namespace HttpExecutor.Formulators
             var requests = requestAlgorithm.FormulateRequests().ToList();
 
             var randomLimit = requests.Count;
+            var requestCount = requests.Count;
 
-            for (int i = 0; i < requests.Count; i++)
+            for (int i = 0; i < requestCount; i++)
             {
                 var index = random.Next(0, randomLimit--);
 
@@ -33,7 +34,7 @@ namespace HttpExecutor.Formulators
                 randomRequests.Add(item);
 
                 // Remove the random item from the original list so that it will not be considered again
-                requests.Remove(item);
+                requests.RemoveAt(index);
             }
 
             return randomRequests;
