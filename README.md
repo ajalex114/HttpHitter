@@ -15,13 +15,13 @@ HttpHitter.exe /config <configFileName> /header <headerFileName> /content <conte
 
 The app configuration is taken from the above said 3 files.
 
-### Config File
+### Config File (config.json)
 -----------
 
 This file holds the basic configuration for the app to run
 It contains the following parameters : 
 
-#### "maxRun"  
+#### `"maxRun"`  
 ------------------
 
 |    |    |
@@ -31,7 +31,7 @@ It contains the following parameters :
 
 _Description_ : This specifies the maximum number of requests that will be made by the application.
 
-* "order"
+#### `"order"`
 
 |    |    |
 |----|----|
@@ -45,31 +45,31 @@ Supported Values :
 
 _Description :_
 
-* Sequential :  
+* `Sequential` :  
 The requests - as provided in the `content.csv`- are executed in a _sequential_ order.  
 If there are 10 requests in `content.csv` file, and `maxRun = 100`, a total of **10** requests are executed.
 
 
-* SequentialRepeat :  
+* `SequentialRepeat` :  
 The requests - as provided in the `content.csv`- are executed in a _sequential_ order, and the requests are repeated.  
 If there are 10 requests in `content.csv` file, and `maxRun = 100`, a total of **100** requests are executed.
 
-* Random :  
+* `Random` :  
 The requests - as provided in the `content.csv`- are executed in a _random_ order.  
 If there are 10 requests in `content.csv` file, and `maxRun = 100`, a total of **10** requests are executed.
 
 
-* RandomRepeat :  
+* `RandomRepeat` :  
 The requests - as provided in the `content.csv`- are executed in a _random_ order, and the requests are repeated.  
 If there are 10 requests in `content.csv` file, and `maxRun = 100`, a total of **100** requests are executed.
 
-#### "defaultVariables"
+#### `"defaultVariables"`
 ------------------
 
 This is a `Dictionary<string, string>`, which holds the default variables, which will be applied on requests as provided in `content.csv` file.
 The `Key` is the variable name and the `Value` is the variable value.
 
-#### defaultMultiVariables
+#### `"defaultMultiVariables"`
 ----------------
 
 This is a `Dictionary<string, string[]>`, which holds the default variables, which will be applied on requests as provided in `content.csv` file.
@@ -97,7 +97,7 @@ The `Key` is the variable name and the `Value` is a collection of values which w
 
 -------------------------------
 
-### Headers File
+### Headers File (Headers.prop)
 -----------------
 This is a property file which holds the `Header Values`.  
 It is a `Key-Value` based file, where the Key and Value are separated by `:<space>`.  
@@ -112,7 +112,7 @@ Cookie: <Cookie>
 ```
 --------------------------
 
-### Content File
+### Content File (content.csv)
 ----------------------
 
 Content file is the file which provides request information to be executed.  
